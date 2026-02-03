@@ -1,3 +1,6 @@
+# WARNING: FORKED VERSION
+This is a forked version of the `velocileptors` code, renamed to `velocileptors_free`. It contains modifications and may differ from the original upstream version. Use with caution.
+
 # velocileptors
 
 Velocity-based perturbation theory (both Lagrangian (LPT) and Eulerian (EPT)
@@ -11,7 +14,7 @@ biasing) as well as the real-space pairwise velocity moments.
 
 The code can be installed with
 
-python3 -m pip install -v git+https://github.com/sfschen/velocileptors
+python3 -m pip install -v git+https://github.com/marcobonici/velocileptors_free
 
 It requires numpy, scipy and pyFFTW (the python wrapper for FFTW):
 
@@ -38,7 +41,7 @@ For most situations computing the power spectrum wedges or multipoles
 is as simple as:
 
 ```
-from velocileptors.LPT.moment_expansion_fftw import MomentExpansion
+from velocileptors_free.LPT.moment_expansion_fftw import MomentExpansion
 
 mome        = MomentExpansion(klin,pklin,threads=nthreads)
 kw,pkw      = mome.compute_redshift_space_power_at_mu(pars,f,mu,reduced=True)
@@ -114,7 +117,7 @@ pars = [b1, b2, bs, b3] +  [alpha0, alpha2, alpha4, alpha6] +  [sn, sn2, sn4]
 The LPT module has to be called slightly differently compared to the other ones because the angular dependence of the underlying IR resummation requires recomputing the PT integrals at each mu. For example the multipoles can be computed as:
 
 ```
-from velocileptors.LPT.lpt_rsd_fftw import LPT_RSD
+from velocileptors_free.LPT.lpt_rsd_fftw import LPT_RSD
 lpt = LPT_RSD(klin,plin,kIR=0.2)
 
 lpt.make_pltable(f,nmax=4,apar=1,aperp=1)
