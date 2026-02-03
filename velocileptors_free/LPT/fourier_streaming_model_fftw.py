@@ -1,6 +1,6 @@
 import numpy as np
 
-from velocileptors.LPT.velocity_moments_fftw import VelocityMoments
+from velocileptors_free.LPT.velocity_moments_fftw import VelocityMoments
 
 class FourierStreamingModel(VelocityMoments):
     '''

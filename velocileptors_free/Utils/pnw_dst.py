@@ -1,5 +1,5 @@
 import numpy as np
-from velocileptors.Utils.loginterp import loginterp
+from velocileptors_free.Utils.loginterp import loginterp
 
 from scipy.interpolate import interp1d
 from scipy.ndimage import gaussian_filter

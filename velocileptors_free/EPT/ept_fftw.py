@@ -1,7 +1,7 @@
 import numpy as np
 
-from velocileptors.Utils.loginterp import loginterp
-from velocileptors.EPT.velocity_moments_kexpanded_fftw import KEVelocityMoments
+from velocileptors_free.Utils.loginterp import loginterp
+from velocileptors_free.EPT.velocity_moments_kexpanded_fftw import KEVelocityMoments
 
 class EPT(KEVelocityMoments):
 
@@ -14,13 +14,18 @@ class EPT(KEVelocityMoments):
     
     '''
 
-    def __init__(self, *args, kmin = 1e-2, kmax = 0.5, nk = 100, **kw):
+    def __init__(self, *args, kmin = 1e-2, kmax = 0.5, nk = 100, kvec = None, **kw):
     
         # Initialize the velocity class
         KEVelocityMoments.__init__(self, *args, **kw)
         
+        if kvec is not None:
+            nk = len(kvec)
+            kmin = kvec[0]
+            kmax = kvec[-1]
+        
         self.nk, self.kmin, self.kmax = nk, kmin, kmax
-        self.make_tables(kmin=kmin, kmax=kmax, nk = nk)
+        self.make_tables(kmin=kmin, kmax=kmax, nk = nk, kvec=kvec)
         self.kv = self.pktable[:,0]
         self.plin = loginterp(self.k, self.p)(self.kv)
 

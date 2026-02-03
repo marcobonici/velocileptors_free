@@ -5,10 +5,10 @@ import time
 from scipy.interpolate import interp1d
 from scipy.signal import savgol_filter
 
-from velocileptors.Utils.spherical_bessel_transform_fftw import SphericalBesselTransform
-from velocileptors.Utils.pnw_dst import pnw_dst
+from velocileptors_free.Utils.spherical_bessel_transform_fftw import SphericalBesselTransform
+from velocileptors_free.Utils.pnw_dst import pnw_dst
 
-from velocileptors.EPT.cleft_kexpanded_fftw import KECLEFT
+from velocileptors_free.EPT.cleft_kexpanded_fftw import KECLEFT
 
 class RKECLEFT:
     '''

@@ -2,11 +2,11 @@ import numpy as np
 from scipy.interpolate import InterpolatedUnivariateSpline as Spline
 from scipy.signal import tukey
 
-from velocileptors.Utils.spherical_bessel_transform import SphericalBesselTransform
-from velocileptors.Utils.loginterp import loginterp
+from velocileptors_free.Utils.spherical_bessel_transform import SphericalBesselTransform
+from velocileptors_free.Utils.loginterp import loginterp
 
 
-from velocileptors.LPT.velocity_moments_fftw import VelocityMoments
+from velocileptors_free.LPT.velocity_moments_fftw import VelocityMoments
 
 
 class GaussianStreamingModel(VelocityMoments):

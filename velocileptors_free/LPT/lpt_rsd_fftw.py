@@ -4,12 +4,12 @@ import os
 from scipy.special import hyp2f1, gamma
 from scipy.interpolate import interp1d
 
-from velocileptors.Utils.spherical_bessel_transform_fftw import SphericalBesselTransform
-from velocileptors.Utils.spherical_bessel_transform import SphericalBesselTransform as SphericalBesselTransformNP
-from velocileptors.Utils.loginterp import loginterp
-from velocileptors.Utils.gaussian_poly_extrap import gaussian_poly_extrap
+from velocileptors_free.Utils.spherical_bessel_transform_fftw import SphericalBesselTransform
+from velocileptors_free.Utils.spherical_bessel_transform import SphericalBesselTransform as SphericalBesselTransformNP
+from velocileptors_free.Utils.loginterp import loginterp
+from velocileptors_free.Utils.gaussian_poly_extrap import gaussian_poly_extrap
 
-from velocileptors.Utils.qfuncfft import QFuncFFT
+from velocileptors_free.Utils.qfuncfft import QFuncFFT
 
 
 

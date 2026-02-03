@@ -3,9 +3,9 @@ import numpy as np
 from scipy.signal import savgol_filter
 from scipy.interpolate import interp1d
 
-from velocileptors.Utils.loginterp import loginterp
+from velocileptors_free.Utils.loginterp import loginterp
 
-from velocileptors.EPT.ept_fftw import EPT
+from velocileptors_free.EPT.ept_fftw import EPT
 
 class REPT:
 
@@ -18,12 +18,18 @@ class REPT:
     
     '''
     
-    def __init__(self, k, p, pnw=None, *args, rbao = 110, kmin = 1e-2, kmax = 0.5, nk = 100, sbao=None, **kw):
+    def __init__(self, k, p, pnw=None, *args, rbao = 110, kmin = 1e-2, kmax = 0.5, nk = 100, kvec = None, sbao=None, **kw):
         
-        self.nk, self.kmin, self.kmax = nk, kmin, kmax
         self.rbao = rbao
         
-        self.ept = EPT( k, p, kmin=kmin, kmax=kmax, nk = nk, third_order=True, **kw)
+        if kvec is not None:
+            self.nk = len(kvec)
+            self.kmin = kvec[0]
+            self.kmax = kvec[-1]
+        else:
+            self.nk, self.kmin, self.kmax = nk, kmin, kmax
+        
+        self.ept = EPT( k, p, kmin=kmin, kmax=kmax, nk = nk, kvec = kvec, third_order=True, **kw)
         
         if pnw is None:
             knw = self.ept.kint
@@ -32,7 +38,7 @@ class REPT:
         else:
             knw, pnw = k, pnw
             
-        self.ept_nw = EPT( knw, pnw, kmin=kmin, kmax=kmax, nk = nk, third_order=True, **kw)
+        self.ept_nw = EPT( knw, pnw, kmin=kmin, kmax=kmax, nk = nk, kvec = kvec, third_order=True, **kw)
         
         self.beyond_gauss = self.ept.beyond_gauss
         

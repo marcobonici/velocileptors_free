@@ -4,9 +4,9 @@ import os
 
 from scipy.interpolate import interp1d
 
-from velocileptors.Utils.spherical_bessel_transform_fftw import SphericalBesselTransform
-from velocileptors.Utils.qfuncfft import QFuncFFT
-from velocileptors.Utils.loginterp import loginterp
+from velocileptors_free.Utils.spherical_bessel_transform_fftw import SphericalBesselTransform
+from velocileptors_free.Utils.qfuncfft import QFuncFFT
+from velocileptors_free.Utils.loginterp import loginterp
 
 class CLEFT:
     '''
